@@ -16,7 +16,12 @@ public partial class PlayerCharacter : CharacterBody2D
 
 	private void GetPlayerInput()
 	{
-		Vector2 dir = Input.GetVector("ui_left","ui_right","ui_up","ui_down");
+		Vector2 dir = Input.GetVector(
+			"move_left",
+			"move_right",
+			"move_up",
+			"move_down"
+		);
 		Velocity = dir * Speed;
 	}
 
@@ -25,10 +30,15 @@ public partial class PlayerCharacter : CharacterBody2D
 		for (int i = 0; i < GetSlideCollisionCount(); i++)
 		{
 			var collision = GetSlideCollision(i);
-			var body = (Box) collision.GetCollider();
+			var body = (Box)collision.GetCollider();
 			if (body != null)
 			{
-				Vector2 dir = Input.GetVector("ui_left","ui_right","ui_up","ui_down");
+				Vector2 dir = Input.GetVector(
+				"move_left",
+				"move_right",
+				"move_up",
+				"move_down"
+			);
 				body.MoveBox(dir);
 			}
 		}

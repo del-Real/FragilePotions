@@ -23,10 +23,10 @@ public partial class Box : CharacterBody2D
 		{
 			return;
 		}
-		
+
 		var collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		collision.Disabled = true;
-		
+
 		Vector2 target = Position + dir * TileSize;
 		_moving = true;
 		Tween tween = CreateTween();
@@ -36,7 +36,7 @@ public partial class Box : CharacterBody2D
 			_moving = false;
 			collision.Disabled = false;
 		};
-		
-		
+
+
 	}
 }
