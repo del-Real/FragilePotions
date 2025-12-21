@@ -3,27 +3,27 @@ using System;
 
 public partial class PlayerCharacter : CharacterBody2D
 {
-	[Export] public float Speed = 256f;
-	[Export] public int TileSize = 64;
-	[Export] private float MoveTime = 0.2f;
+	[Export] private float _moveTime = 0.1f;
+	[Export] public NodePath LevelPath;
 	private bool _moving = false;
+	private Level _currLevel;
 
 	public override void _Ready()
 	{
-		
+		_currLevel = GetNode<Level>(LevelPath);
 	}
 	public override void _PhysicsProcess(double delta)
 	{
 		var dir = getInput();
-		if (_moving || dir == Vector2.Zero)
+		if (_moving || dir == Vector2.Zero || !canMoveTo(Position/Main.TileSize+ dir))
 		{
 			return;
 		}
 
-		var targetPos = Position + TileSize * dir;
+		var targetPos = Position + Main.TileSize * dir;
 		_moving = true;
 		Tween tween = CreateTween();
-		tween.TweenProperty(this, "position", targetPos, MoveTime);
+		tween.TweenProperty(this, "position", targetPos, _moveTime);
 		tween.Finished += () =>
 		{
 			_moving = false;
@@ -49,6 +49,13 @@ public partial class PlayerCharacter : CharacterBody2D
 		}
 
 		return dir;
+	}
+
+	private bool canMoveTo(Vector2 position)
+	{
+		
+		return _currLevel.canMoveTo(position);
+		
 	}
 }
 
