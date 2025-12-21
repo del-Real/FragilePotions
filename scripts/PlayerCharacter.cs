@@ -15,7 +15,7 @@ public partial class PlayerCharacter : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		var dir = getInput();
-		if (_moving || dir == Vector2.Zero || !canMoveTo(Position/Main.TileSize+ dir))
+		if (_moving || dir == Vector2.Zero || !_currLevel.canMoveTo(Position/Main.TileSize,dir))
 		{
 			return;
 		}
@@ -51,12 +51,4 @@ public partial class PlayerCharacter : CharacterBody2D
 		return dir;
 	}
 
-	private bool canMoveTo(Vector2 position)
-	{
-		
-		return _currLevel.canMoveTo(position);
-		
-	}
 }
-
-

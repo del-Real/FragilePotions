@@ -4,6 +4,6 @@ public enum CellType
 {
     Empty,
     Wall,
-    //Player,
-    //Box
+    Player,
+    Box
 }
