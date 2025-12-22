@@ -10,7 +10,11 @@ public partial class PlayerCharacter : CharacterBody2D
 
 	public override void _Ready()
 	{
-		_currLevel = GetNode<Level>(LevelPath);
+	}
+
+	public void setCurrLevel(Level level)
+	{
+		_currLevel = level;
 	}
 	public override void _PhysicsProcess(double delta)
 	{

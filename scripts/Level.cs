@@ -13,6 +13,8 @@ public partial class Level : Node2D
 	public CellType[,] grid;
 	private Dictionary<Vector2I, Box> coordsToBoxMap;
 	private Dictionary<Box, Vector2I> boxToCoordsMap;
+
+	private int detectorsNumber = 0, validDetectors = 0;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -20,6 +22,7 @@ public partial class Level : Node2D
 		fillGrid();
 		printGrid();
 		fillMaps();
+		countDetectors();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,12 +30,26 @@ public partial class Level : Node2D
 	{
 	}
 
+	private void countDetectors()
+	{
+		foreach (var childNode in GetChildren())
+		{
+			if (childNode is Detector detector)
+			{
+				GD.Print("Detector found");
+				detectorsNumber++;
+				detector.ValidityChanged += onDetectorValidityChanged;
+			}
+		}
+	}
+
 	private void fillMaps()
 	{
 		coordsToBoxMap = new();
 		boxToCoordsMap = new();
-		var boxes = GetTree().GetNodesInGroup("Boxes");
-		foreach (Box box in boxes)
+		var boxes = GetNode<Node>("Boxes");
+		
+		foreach (Box box in boxes.GetChildren())
 		{
 			Vector2I boxPos = new Vector2I((int)box.Position.X / Main.TileSize, (int)box.Position.Y / Main.TileSize);
 			coordsToBoxMap[boxPos] = box;
@@ -73,8 +90,8 @@ public partial class Level : Node2D
 		
 		// Put the boxes
 
-		var boxes = GetTree().GetNodesInGroup("Boxes");
-		foreach (Box box in boxes)
+		var boxes = GetNode<Node>("Boxes");
+		foreach (Box box in boxes.GetChildren())
 		{
 			Vector2I cell = new Vector2I((int)box.Position.X/Main.TileSize, (int)box.Position.Y/Main.TileSize);
 			grid[cell.X-rect.Position.X,cell.Y-rect.Position.Y] = CellType.Box;
@@ -127,8 +144,8 @@ public partial class Level : Node2D
 			{
 				
 				checkBoxMove(boxToCoordsMap[box],dir, moved);
-				printGrid();
 			}
+			printGrid();
 			return getTargetCell(pos, dir) == CellType.Empty;
 		} 
 		printGrid();
@@ -195,5 +212,23 @@ public partial class Level : Node2D
 	{
 		var target = pos + dir;
 		return grid[target.X, target.Y];
+	}
+
+	private void onDetectorValidityChanged(bool valid)
+	{
+		if (valid)
+		{
+			validDetectors++;
+			if (validDetectors == detectorsNumber)
+			{
+				GD.Print("Map completed");
+				var levelManager = GetNode<LevelManager>("/root/Main/LevelManager");
+				levelManager.loadNextLevel();
+			}
+		}
+		else
+		{
+			validDetectors--;
+		}
 	}
 }

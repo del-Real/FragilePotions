@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://v0krq0saxkp7"]
+[gd_scene load_steps=5 format=3 uid="uid://v0krq0saxkp7"]
 
 [ext_resource type="Script" uid="uid://cimcocre8vm0n" path="res://scripts/Main.cs" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dqscbgfm1rq88" path="res://playerCharacter.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://bjppcw66uvjre" path="res://scripts/PlayerCharacter.cs" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://b2f3y3ch5b8qc" path="res://level.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://b86r1jr5njens" path="res://scripts/LevelManager.cs" id="7_272bh"]
 
 [node name="Main" type="Node2D"]
@@ -13,13 +12,11 @@ script = ExtResource("1_5vw27")
 z_index = 1
 position = Vector2(265, 343)
 script = ExtResource("3_1bvp3")
-LevelPath = NodePath("../Levels/Level1")
+LevelPath = NodePath("")
 
-[node name="Levels" type="Node" parent="."]
-
-[node name="Level1" parent="Levels" instance=ExtResource("4_lquwl")]
+[node name="LevelContainer" type="Node2D" parent="."]
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("7_272bh")
 PlayerPath = NodePath("../PlayerCharacter")
-LevelContainerPath = NodePath("../Levels")
+LevelContainerPath = NodePath("../LevelContainer")

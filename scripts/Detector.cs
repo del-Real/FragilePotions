@@ -3,6 +3,8 @@ using System;
 
 public partial class Detector : Area2D
 {
+	
+	[Signal] public delegate void ValidityChangedEventHandler(bool isValid);
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,11 +17,11 @@ public partial class Detector : Area2D
 
 	public void _on_body_entered(Node2D body)
 	{
-		GD.Print("Entered");
+		EmitSignal(SignalName.ValidityChanged, true);
 	}
 
 	public void _on_body_exited(Node2D body)
 	{
-		GD.Print("Exited");
+		EmitSignal(SignalName.ValidityChanged, false);
 	}
 }
