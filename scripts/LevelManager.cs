@@ -12,7 +12,7 @@ public partial class LevelManager : Node
 	
 	private Node? _currentLevel;
 
-	private int index = 1;
+	[Export] private int index = 1;
 	
 	public override void _Ready()
 	{
