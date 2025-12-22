@@ -114,6 +114,7 @@ public partial class Level : Node2D
 
 	public bool canMoveTo(Vector2I pos, Vector2I dir)
 	{
+		bool retVal = false;
 		if (getTargetCell(pos, dir) == CellType.Wall)
 		{
 			printGrid();

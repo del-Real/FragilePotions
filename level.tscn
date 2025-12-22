@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://b2f3y3ch5b8qc"]
+[gd_scene load_steps=10 format=4 uid="uid://b2f3y3ch5b8qc"]
 
 [ext_resource type="Texture2D" uid="uid://chcyuuqoqss8q" path="res://assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="1_0b4ue"]
 [ext_resource type="Script" uid="uid://cs84sqxycj5rs" path="res://scripts/Level.cs" id="1_f2txt"]
 [ext_resource type="PackedScene" uid="uid://c072nbnqb2bqf" path="res://box.tscn" id="2_f2txt"]
 [ext_resource type="Script" uid="uid://bcyiqoa63ukuo" path="res://scripts/Box.cs" id="3_1ainy"]
 [ext_resource type="Texture2D" uid="uid://bsebb3748vwvx" path="res://box_render_sprite.png" id="4_n6hdu"]
+[ext_resource type="PackedScene" uid="uid://dyf24ww1fvbsn" path="res://detector.tscn" id="6_1ainy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_0b4ue")
@@ -134,6 +135,12 @@ tile_set = SubResource("TileSet_h2yge")
 position = Vector2(1, -1)
 tile_map_data = PackedByteArray("AAABAAEAAAAGAAcAAAABAAIAAAAGAAcAAAABAAMAAAAGAAcAAAABAAQAAAAGAAcAAAABAAUAAAAGAAcAAAABAAYAAAAGAAcAAAABAAcAAAAGAAcAAAABAAgAAAAGAAcAAAABAAkAAAAGAAcAAAABAAoAAAAGAAcAAAABAAsAAAAGAAcAAAABAAwAAAAGAAcAAAABAA0AAAAGAAcAAAABAA4AAAAGAAcAAAAOAAEAAAAGAAcAAAANAAEAAAAGAAcAAAAMAAEAAAAGAAcAAAALAAEAAAAGAAcAAAAKAAEAAAAGAAcAAAAJAAEAAAAGAAcAAAAIAAEAAAAGAAcAAAAHAAEAAAAGAAcAAAAGAAEAAAAGAAcAAAAFAAEAAAAGAAcAAAAEAAEAAAAGAAcAAAADAAEAAAAGAAcAAAACAAEAAAAGAAcAAAACAA4AAAAGAAcAAAADAA4AAAAGAAcAAAAEAA4AAAAGAAcAAAAFAA4AAAAGAAcAAAAGAA4AAAAGAAcAAAAHAA4AAAAGAAcAAAAIAA4AAAAGAAcAAAAJAA4AAAAGAAcAAAAKAA4AAAAGAAcAAAALAA4AAAAGAAcAAAAMAA4AAAAGAAcAAAANAA4AAAAGAAcAAAAOAA4AAAAGAAcAAAAOAAIAAAAGAAcAAAAOAAMAAAAGAAcAAAAOAAQAAAAGAAcAAAAOAAUAAAAGAAcAAAAOAAYAAAAGAAcAAAAOAAcAAAAGAAcAAAAOAAgAAAAGAAcAAAAOAAkAAAAGAAcAAAAOAAoAAAAGAAcAAAAOAAsAAAAGAAcAAAAOAAwAAAAGAAcAAAAOAA0AAAAGAAcAAAAGAAYAAAAGAAcAAAAFAAgAAAAGAAcAAAAGAAkAAAAGAAcAAAAHAAkAAAAGAAcAAAAIAAkAAAAGAAcAAAAJAAkAAAAGAAcAAAAKAAgAAAAGAAcAAAAJAAYAAAAGAAcAAAA=")
 tile_set = SubResource("TileSet_h2yge")
+
+[node name="Detector" parent="." instance=ExtResource("6_1ainy")]
+position = Vector2(544, 160)
+
+[node name="Detector2" parent="." instance=ExtResource("6_1ainy")]
+position = Vector2(544, 288)
 
 [node name="Box" parent="." groups=["Boxes"] instance=ExtResource("2_f2txt")]
 position = Vector2(288, 224)
