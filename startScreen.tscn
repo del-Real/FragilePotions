@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqu5htecbhroc"]
+
+[ext_resource type="Script" uid="uid://cyhyvyyls3x43" path="res://scripts/StartScreen.cs" id="1_3cdud"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_3cdud")
+
+[node name="IntroScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="IntroScreen"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="IntroScreen"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+text = "FRAGILE SOKOBAN
+Use WASD or arrows to move (please don't smap keys it might break)
+When pushing a box, all boxes will move in the same direction unless pushed against a wall
+Each box can be pushed against a wall for a finite amount of times, after which it will be destroyed.
+Cover all the targets with boxes to complete each level.
+A game by luc-10 and Del-Real
+Press Enter to start or to reset current level."
+horizontal_alignment = 1
+vertical_alignment = 1

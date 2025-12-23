@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=4 uid="uid://dfpxxgsxf5c8v"]
+[gd_scene load_steps=7 format=4 uid="uid://d4if5eq4psbtq"]
 
-[ext_resource type="Script" uid="uid://cs84sqxycj5rs" path="res://scripts/Level.cs" id="1_qdeqy"]
-[ext_resource type="Texture2D" uid="uid://chcyuuqoqss8q" path="res://assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="2_momnh"]
-[ext_resource type="PackedScene" uid="uid://dyf24ww1fvbsn" path="res://detector.tscn" id="3_ige3v"]
-[ext_resource type="PackedScene" uid="uid://c072nbnqb2bqf" path="res://box.tscn" id="4_502tb"]
+[ext_resource type="Script" uid="uid://cs84sqxycj5rs" path="res://scripts/Level.cs" id="1_pxyek"]
+[ext_resource type="Texture2D" uid="uid://chcyuuqoqss8q" path="res://assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="2_bh7jw"]
+[ext_resource type="PackedScene" uid="uid://dyf24ww1fvbsn" path="res://detector.tscn" id="3_m0ud0"]
+[ext_resource type="PackedScene" uid="uid://c072nbnqb2bqf" path="res://box.tscn" id="4_0igbb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
-texture = ExtResource("2_momnh")
+texture = ExtResource("2_bh7jw")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 2:0/0 = 0
@@ -118,7 +118,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_qdeqy")
+script = ExtResource("1_pxyek")
 TmlWallsPath = NodePath("TmlWalls")
 TmlBackgroundPath = NodePath("TmlBackground")
 
@@ -128,41 +128,29 @@ tile_set = SubResource("TileSet_h2yge")
 
 [node name="TmlWalls" type="TileMapLayer" parent="."]
 position = Vector2(1, -1)
-tile_map_data = PackedByteArray("AAABAAEAAAAGAAcAAAABAAIAAAAGAAcAAAABAAMAAAAGAAcAAAABAAQAAAAGAAcAAAABAAUAAAAGAAcAAAABAAYAAAAGAAcAAAABAAcAAAAGAAcAAAABAAgAAAAGAAcAAAABAAkAAAAGAAcAAAABAAoAAAAGAAcAAAABAAsAAAAGAAcAAAABAAwAAAAGAAcAAAABAA0AAAAGAAcAAAABAA4AAAAGAAcAAAAOAAEAAAAGAAcAAAANAAEAAAAGAAcAAAAMAAEAAAAGAAcAAAALAAEAAAAGAAcAAAAKAAEAAAAGAAcAAAAJAAEAAAAGAAcAAAAIAAEAAAAGAAcAAAAHAAEAAAAGAAcAAAAGAAEAAAAGAAcAAAAFAAEAAAAGAAcAAAAEAAEAAAAGAAcAAAADAAEAAAAGAAcAAAACAAEAAAAGAAcAAAACAA4AAAAGAAcAAAADAA4AAAAGAAcAAAAEAA4AAAAGAAcAAAAFAA4AAAAGAAcAAAAGAA4AAAAGAAcAAAAHAA4AAAAGAAcAAAAIAA4AAAAGAAcAAAAJAA4AAAAGAAcAAAAKAA4AAAAGAAcAAAALAA4AAAAGAAcAAAAMAA4AAAAGAAcAAAANAA4AAAAGAAcAAAAOAA4AAAAGAAcAAAAOAAIAAAAGAAcAAAAOAAMAAAAGAAcAAAAOAAQAAAAGAAcAAAAOAAUAAAAGAAcAAAAOAAYAAAAGAAcAAAAOAAcAAAAGAAcAAAAOAAgAAAAGAAcAAAAOAAkAAAAGAAcAAAAOAAoAAAAGAAcAAAAOAAsAAAAGAAcAAAAOAAwAAAAGAAcAAAAOAA0AAAAGAAcAAAAGAAgAAAAGAAcAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAAAGAAcAAAABAAIAAAAGAAcAAAABAAMAAAAGAAcAAAABAAQAAAAGAAcAAAABAAUAAAAGAAcAAAABAAYAAAAGAAcAAAABAAcAAAAGAAcAAAABAAgAAAAGAAcAAAABAAkAAAAGAAcAAAABAAoAAAAGAAcAAAABAAsAAAAGAAcAAAABAAwAAAAGAAcAAAABAA0AAAAGAAcAAAABAA4AAAAGAAcAAAAOAAEAAAAGAAcAAAANAAEAAAAGAAcAAAAMAAEAAAAGAAcAAAALAAEAAAAGAAcAAAAKAAEAAAAGAAcAAAAJAAEAAAAGAAcAAAAIAAEAAAAGAAcAAAAHAAEAAAAGAAcAAAAGAAEAAAAGAAcAAAAFAAEAAAAGAAcAAAAEAAEAAAAGAAcAAAADAAEAAAAGAAcAAAACAAEAAAAGAAcAAAACAA4AAAAGAAcAAAADAA4AAAAGAAcAAAAEAA4AAAAGAAcAAAAFAA4AAAAGAAcAAAAGAA4AAAAGAAcAAAAHAA4AAAAGAAcAAAAIAA4AAAAGAAcAAAAJAA4AAAAGAAcAAAAKAA4AAAAGAAcAAAALAA4AAAAGAAcAAAAMAA4AAAAGAAcAAAANAA4AAAAGAAcAAAAOAA4AAAAGAAcAAAAOAAIAAAAGAAcAAAAOAAMAAAAGAAcAAAAOAAQAAAAGAAcAAAAOAAUAAAAGAAcAAAAOAAYAAAAGAAcAAAAOAAcAAAAGAAcAAAAOAAgAAAAGAAcAAAAOAAkAAAAGAAcAAAAOAAoAAAAGAAcAAAAOAAsAAAAGAAcAAAAOAAwAAAAGAAcAAAAOAA0AAAAGAAcAAAAGAAgAAAAGAAcAAAAHAAgAAAAGAAcAAAAGAAcAAAAGAAcAAAAFAAYAAAAGAAcAAAAEAAUAAAAGAAcAAAAJAAgAAAAGAAcAAAAKAAcAAAAGAAcAAAALAAYAAAAGAAcAAAAMAAUAAAAGAAcAAAALAAQAAAAGAAcAAAAKAAMAAAAGAAcAAAAJAAIAAAAGAAcAAAAHAAIAAAAGAAcAAAAGAAMAAAAGAAcAAAAFAAQAAAAGAAcAAAAJAAkAAAAGAAcAAAAJAAoAAAAGAAcAAAAIAA0AAAAGAAcAAAAJAAwAAAAGAAcAAAAKAAsAAAAGAAcAAAAHAAwAAAAGAAcAAAAGAAsAAAAGAAcAAAAHAAoAAAAGAAcAAAAHAAkAAAAGAAcAAAA=")
 tile_set = SubResource("TileSet_h2yge")
 
-[node name="Detector" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(480, 544)
+[node name="Detector" parent="." instance=ExtResource("3_m0ud0")]
+position = Vector2(544, 672)
 
-[node name="Detector2" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(544, 544)
+[node name="Detector2" parent="." instance=ExtResource("3_m0ud0")]
+position = Vector2(544, 800)
 
-[node name="Detector3" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(608, 544)
-
-[node name="Detector4" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(672, 544)
-
-[node name="Detector5" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(736, 544)
+[node name="Detector3" parent="." instance=ExtResource("3_m0ud0")]
+position = Vector2(544, 736)
 
 [node name="Boxes" type="Node" parent="."]
 
-[node name="Box" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 288)
+[node name="Box" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_0igbb")]
+position = Vector2(736, 352)
 
-[node name="Box2" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 224)
+[node name="Box2" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_0igbb")]
+position = Vector2(544, 160)
 
-[node name="Box3" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 352)
-
-[node name="Box4" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 416)
-
-[node name="Box5" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 480)
+[node name="Box3" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_0igbb")]
+position = Vector2(352, 352)
 
 [node name="PlayerStart" type="Marker2D" parent="."]
-position = Vector2(352, 608)
+position = Vector2(544, 352)
 scale = Vector2(64, 64)
