@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://dfpxxgsxf5c8v"]
+[gd_scene load_steps=7 format=4 uid="uid://d4if5eq4psbtq"]
 
 [ext_resource type="Script" uid="uid://cs84sqxycj5rs" path="res://scripts/Level.cs" id="1_qdeqy"]
 [ext_resource type="Texture2D" uid="uid://beyta3hx4oh1r" path="res://assets/fragileTileSheet.png" id="2_qdeqy"]
 [ext_resource type="PackedScene" uid="uid://dyf24ww1fvbsn" path="res://detector.tscn" id="3_ige3v"]
 [ext_resource type="PackedScene" uid="uid://c072nbnqb2bqf" path="res://box.tscn" id="4_502tb"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_momnh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bh7jw"]
 texture = ExtResource("2_qdeqy")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -17,7 +17,6 @@ texture_region_size = Vector2i(64, 64)
 6:0/0 = 0
 7:0/0 = 0
 8:0/0 = 0
-9:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -48,11 +47,12 @@ texture_region_size = Vector2i(64, 64)
 7:3/0 = 0
 8:3/0 = 0
 9:3/0 = 0
+9:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_h2yge"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_momnh")
+sources/1 = SubResource("TileSetAtlasSource_bh7jw")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_qdeqy")
@@ -65,41 +65,30 @@ tile_set = SubResource("TileSet_h2yge")
 
 [node name="TmlWalls" type="TileMapLayer" parent="."]
 position = Vector2(1, -1)
-tile_map_data = PackedByteArray("AAABAAEAAQAJAAEAAAABAAIAAQAJAAEAAAABAAMAAQAJAAEAAAABAAQAAQAJAAEAAAABAAUAAQAJAAEAAAABAAYAAQAJAAEAAAABAAcAAQAJAAEAAAABAAgAAQAJAAEAAAABAAkAAQAJAAEAAAABAAoAAQAJAAEAAAABAAsAAQAJAAEAAAABAAwAAQAJAAEAAAABAA0AAQAJAAEAAAABAA4AAQAJAAEAAAAOAAEAAQAJAAEAAAANAAEAAQAJAAEAAAAMAAEAAQAJAAEAAAALAAEAAQAJAAEAAAAKAAEAAQAJAAEAAAAJAAEAAQAJAAEAAAAIAAEAAQAJAAEAAAAHAAEAAQAJAAEAAAAGAAEAAQAJAAEAAAAFAAEAAQAJAAEAAAAEAAEAAQAJAAEAAAADAAEAAQAJAAEAAAACAAEAAQAJAAEAAAACAA4AAQAJAAEAAAADAA4AAQAJAAEAAAAEAA4AAQAJAAEAAAAFAA4AAQAJAAEAAAAGAA4AAQAJAAEAAAAHAA4AAQAJAAEAAAAIAA4AAQAJAAEAAAAJAA4AAQAJAAEAAAAKAA4AAQAJAAEAAAALAA4AAQAJAAEAAAAMAA4AAQAJAAEAAAANAA4AAQAJAAEAAAAOAA4AAQAJAAEAAAAOAAIAAQAJAAEAAAAOAAMAAQAJAAEAAAAOAAQAAQAJAAEAAAAOAAUAAQAJAAEAAAAOAAYAAQAJAAEAAAAOAAcAAQAJAAEAAAAOAAgAAQAJAAEAAAAOAAkAAQAJAAEAAAAOAAoAAQAJAAEAAAAOAAsAAQAJAAEAAAAOAAwAAQAJAAEAAAAOAA0AAQAJAAEAAAAGAAgAAQAJAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAQAJAAEAAAABAAIAAQAJAAEAAAABAAMAAQAJAAIAAAABAAQAAQAIAAEAAAABAAUAAQAJAAEAAAABAAYAAQAJAAEAAAABAAcAAQAIAAEAAAABAAgAAQAJAAIAAAABAAkAAQAIAAEAAAABAAoAAQAIAAIAAAABAAsAAQAIAAIAAAABAAwAAQAJAAEAAAABAA0AAQAIAAIAAAABAA4AAQAJAAIAAAAOAAEAAQAIAAEAAAANAAEAAQAJAAEAAAAMAAEAAQAIAAIAAAALAAEAAQAIAAIAAAAKAAEAAQAJAAIAAAAJAAEAAQAJAAEAAAAIAAEAAQAJAAEAAAAHAAEAAQAJAAIAAAAGAAEAAQAIAAIAAAAFAAEAAQAJAAEAAAAEAAEAAQAIAAEAAAADAAEAAQAIAAIAAAACAAEAAQAJAAEAAAACAA4AAQAJAAEAAAADAA4AAQAIAAIAAAAEAA4AAQAIAAIAAAAFAA4AAQAIAAEAAAAGAA4AAQAJAAEAAAAHAA4AAQAJAAIAAAAIAA4AAQAIAAEAAAAJAA4AAQAIAAIAAAAKAA4AAQAIAAEAAAALAA4AAQAIAAEAAAAMAA4AAQAIAAIAAAANAA4AAQAJAAIAAAAOAA4AAQAIAAIAAAAOAAIAAQAIAAIAAAAOAAMAAQAJAAIAAAAOAAQAAQAIAAEAAAAOAAUAAQAIAAEAAAAOAAYAAQAJAAIAAAAOAAcAAQAIAAEAAAAOAAgAAQAJAAIAAAAOAAkAAQAJAAIAAAAOAAoAAQAIAAIAAAAOAAsAAQAIAAEAAAAOAAwAAQAJAAEAAAAOAA0AAQAIAAIAAAAHAAgAAQAJAAEAAAAGAAcAAQAJAAIAAAAFAAYAAQAIAAIAAAAEAAUAAQAIAAIAAAAJAAgAAQAIAAEAAAAKAAcAAQAIAAIAAAALAAYAAQAIAAEAAAAMAAUAAQAJAAIAAAALAAQAAQAIAAEAAAAKAAMAAQAJAAIAAAAJAAIAAQAJAAIAAAAHAAIAAQAJAAIAAAAGAAMAAQAIAAIAAAAFAAQAAQAJAAEAAAAJAAkAAQAIAAEAAAAJAAoAAQAJAAEAAAAIAA0AAQAJAAIAAAAJAAwAAQAJAAEAAAAKAAsAAQAIAAEAAAAHAAwAAQAJAAIAAAAGAAsAAQAIAAIAAAAHAAoAAQAJAAIAAAAHAAkAAQAIAAEAAAA=")
 tile_set = SubResource("TileSet_h2yge")
 
 [node name="Detector" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(480, 544)
+position = Vector2(544, 672)
 
 [node name="Detector2" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(544, 544)
+position = Vector2(544, 800)
 
 [node name="Detector3" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(608, 544)
-
-[node name="Detector4" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(672, 544)
-
-[node name="Detector5" parent="." instance=ExtResource("3_ige3v")]
-position = Vector2(736, 544)
+position = Vector2(544, 736)
 
 [node name="Boxes" type="Node" parent="."]
 
 [node name="Box" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 288)
+position = Vector2(672, 352)
 
 [node name="Box2" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 224)
+position = Vector2(544, 224)
+hp = 1
 
 [node name="Box3" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
 position = Vector2(416, 352)
 
-[node name="Box4" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 416)
-
-[node name="Box5" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_502tb")]
-position = Vector2(416, 480)
-
 [node name="PlayerStart" type="Marker2D" parent="."]
-position = Vector2(352, 608)
+position = Vector2(544, 352)
 scale = Vector2(64, 64)

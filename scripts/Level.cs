@@ -142,7 +142,7 @@ public partial class Level : Node2D
 			foreach (Box box in boxes)
 			{
 				if (!boxToCoordsMap.TryGetValue(box, out var p)){
-					continue;
+					//continue;
 				}
 				checkBoxMove(boxToCoordsMap[box],dir, moved);
 			}
@@ -171,7 +171,7 @@ public partial class Level : Node2D
 					boxToCoordsMap.Remove(box);
 					box.destroy();
 				}
-			} else if (GetParent().GetParent().GetNode<PlayerCharacter>("PlayerCharacter").getPlayerPos() == pos+dir){
+			} /*else if (GetParent().GetParent().GetNode<PlayerCharacter>("PlayerCharacter").getPlayerPos() == pos+dir){
 				//Here when we have box player box
 				//move the box after the player
 				checkBoxMove(pos+2*dir,dir,moved);
@@ -198,7 +198,7 @@ public partial class Level : Node2D
 						box.destroy();
 					}
 				}
-			} else if (getTargetCell(pos, dir) == CellType.Empty)
+			} */else if (getTargetCell(pos, dir) == CellType.Empty)
 			{
 				box.MoveBox(dir);
 				(grid[pos.X + dir.X, pos.Y + dir.Y], grid[pos.X, pos.Y]) = 
