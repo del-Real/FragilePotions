@@ -84,6 +84,7 @@ position = Vector2(672, 352)
 
 [node name="Box2" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_0igbb")]
 position = Vector2(544, 224)
+hp = 1
 
 [node name="Box3" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_0igbb")]
 position = Vector2(416, 352)

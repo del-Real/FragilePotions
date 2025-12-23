@@ -81,12 +81,15 @@ position = Vector2(608, 480)
 
 [node name="Box" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_ohthy")]
 position = Vector2(544, 352)
+hp = 4
 
 [node name="Box2" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_ohthy")]
 position = Vector2(608, 416)
+hp = 4
 
 [node name="Box3" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_ohthy")]
 position = Vector2(544, 416)
+hp = 4
 
 [node name="PlayerStart" type="Marker2D" parent="."]
 position = Vector2(352, 608)

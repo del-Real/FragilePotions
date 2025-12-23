@@ -19,7 +19,7 @@ public partial class PlayerCharacter : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		var dir = getInput();
-		Vector2I gridPos = new Vector2I((int)Position.X/Main.TileSize,(int)Position.Y/Main.TileSize);
+		Vector2I gridPos = getPlayerPos();
 		if (_moving || dir == Vector2.Zero || !_currLevel.canMoveTo(gridPos,dir))
 		{
 			return;
@@ -54,6 +54,11 @@ public partial class PlayerCharacter : CharacterBody2D
 		}
 
 		return dir;
+	}
+
+	public Vector2I getPlayerPos()
+	{
+		return new Vector2I((int)Position.X/Main.TileSize,(int)Position.Y/Main.TileSize);
 	}
 
 }

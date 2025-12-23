@@ -81,6 +81,7 @@ position = Vector2(480, 672)
 
 [node name="Box4" parent="Boxes" groups=["Boxes"] instance=ExtResource("4_ewufw")]
 position = Vector2(352, 800)
+hp = 1
 
 [node name="PlayerStart" type="Marker2D" parent="."]
 position = Vector2(224, 416)

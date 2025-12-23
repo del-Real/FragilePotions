@@ -56,11 +56,15 @@ public partial class Box : CharacterBody2D
 		sprite.RegionRect = new Rect2(Main.TileSize * (hp-1), 0, Main.TileSize, Main.TileSize);
 		if (hp == 0)
 		{
-			QueueFree();
 			return true;
 		}
 
 		return false;
+	}
+
+	public void destroy()
+	{
+		QueueFree();
 	}
 	
 	

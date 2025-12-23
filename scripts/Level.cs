@@ -36,7 +36,6 @@ public partial class Level : Node2D
 		{
 			if (childNode is Detector detector)
 			{
-				GD.Print("Detector found");
 				detectorsNumber++;
 				detector.ValidityChanged += onDetectorValidityChanged;
 			}
@@ -142,7 +141,9 @@ public partial class Level : Node2D
 			HashSet<Box> moved = new();
 			foreach (Box box in boxes)
 			{
-				
+				if (!boxToCoordsMap.TryGetValue(box, out var p)){
+					continue;
+				}
 				checkBoxMove(boxToCoordsMap[box],dir, moved);
 			}
 			printGrid();
@@ -160,7 +161,7 @@ public partial class Level : Node2D
 			//If wall don't move
 			//If box try to move other box
 			//If empty move
-			if (getTargetCell(pos, dir) == CellType.Wall)
+			if (getTargetCell(pos, dir) == CellType.Wall) // Add check for player
 			{
 
 				if (box.RemoveBox())
@@ -168,8 +169,36 @@ public partial class Level : Node2D
 					grid[pos.X, pos.Y] = CellType.Empty;
 					coordsToBoxMap.Remove(boxToCoordsMap[box]);
 					boxToCoordsMap.Remove(box);
+					box.destroy();
 				}
-			} else if (getTargetCell(pos, dir) == CellType.Empty) // add goal eventually
+			} else if (GetParent().GetParent().GetNode<PlayerCharacter>("PlayerCharacter").getPlayerPos() == pos+dir){
+				//Here when we have box player box
+				//move the box after the player
+				checkBoxMove(pos+2*dir,dir,moved);
+				
+				//If that box moved
+				if (getTargetCell(pos + dir, dir) == CellType.Empty)
+				{
+					//Move this one as well
+					box.MoveBox(dir);
+					(grid[pos.X + dir.X, pos.Y + dir.Y], grid[pos.X, pos.Y]) = 
+						(grid[pos.X, pos.Y],grid[pos.X + dir.X, pos.Y + dir.Y]);
+					boxToCoordsMap[box] = new Vector2I(pos.X + dir.X, pos.Y + dir.Y);
+					coordsToBoxMap.Remove(pos);
+					coordsToBoxMap[new Vector2I(pos.X + dir.X, pos.Y + dir.Y)] = box;
+				}
+				else
+				{
+					//Else this one stays still and simulate moving it into a wall
+					if (box.RemoveBox())
+					{
+						grid[pos.X, pos.Y] = CellType.Empty;
+						coordsToBoxMap.Remove(boxToCoordsMap[box]);
+						boxToCoordsMap.Remove(box);
+						box.destroy();
+					}
+				}
+			} else if (getTargetCell(pos, dir) == CellType.Empty)
 			{
 				box.MoveBox(dir);
 				(grid[pos.X + dir.X, pos.Y + dir.Y], grid[pos.X, pos.Y]) = 
@@ -200,6 +229,7 @@ public partial class Level : Node2D
 						grid[pos.X, pos.Y] = CellType.Empty;
 						coordsToBoxMap.Remove(boxToCoordsMap[box]);
 						boxToCoordsMap.Remove(box);
+						box.destroy();
 					}
 				}
 			}
