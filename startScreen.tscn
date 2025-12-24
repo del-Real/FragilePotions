@@ -22,10 +22,10 @@ layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 1024.0
 text = "FRAGILE SOKOBAN
-1) Use WASD or arrows to move (please don't smap keys it might break)
+1) Use WASD or arrows to move (please don't spam keys it might break)
 2) When pushing a potion, all potions will move in the same direction unless pushed against a wall
-3) Each box can be pushed against a wall for a finite amount of times, after which it will be destroyed
-4) Cover all the targets with boxes to complete each level
+3) Each potion can be pushed against a wall for a finite amount of times, after which it will be destroyed
+4) Cover all the targets with potions to complete the level
 5) Press Enter to start or to reset the current level
 
 A game by luc-10 and Del-Real"
