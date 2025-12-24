@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://d4if5eq4psbtq"]
+[gd_scene load_steps=8 format=4 uid="uid://ctidw4m4kfm0l"]
 
 [ext_resource type="Script" uid="uid://cs84sqxycj5rs" path="res://scripts/Level.cs" id="1_qdeqy"]
 [ext_resource type="Texture2D" uid="uid://beyta3hx4oh1r" path="res://assets/fragileTileSheet.png" id="2_qdeqy"]
 [ext_resource type="PackedScene" uid="uid://dyf24ww1fvbsn" path="res://detector.tscn" id="3_ige3v"]
+[ext_resource type="Texture2D" uid="uid://cthnjncan8njt" path="res://assets/background.png" id="4_0fqxo"]
 [ext_resource type="PackedScene" uid="uid://c072nbnqb2bqf" path="res://box.tscn" id="4_502tb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bh7jw"]
@@ -76,6 +77,10 @@ position = Vector2(544, 800)
 
 [node name="Detector3" parent="." instance=ExtResource("3_ige3v")]
 position = Vector2(544, 736)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(512, 512)
+texture = ExtResource("4_0fqxo")
 
 [node name="Boxes" type="Node" parent="."]
 

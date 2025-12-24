@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://curhhe2cvutbr"]
+[gd_scene load_steps=8 format=4 uid="uid://bfadgx0xw3v1l"]
 
 [ext_resource type="Script" uid="uid://cs84sqxycj5rs" path="res://scripts/Level.cs" id="1_1qvdw"]
 [ext_resource type="Texture2D" uid="uid://beyta3hx4oh1r" path="res://assets/fragileTileSheet.png" id="2_vssrd"]
 [ext_resource type="PackedScene" uid="uid://dyf24ww1fvbsn" path="res://detector.tscn" id="3_jf66j"]
 [ext_resource type="PackedScene" uid="uid://c072nbnqb2bqf" path="res://box.tscn" id="4_mxfgm"]
+[ext_resource type="Texture2D" uid="uid://cthnjncan8njt" path="res://assets/background.png" id="4_vssrd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fqxo"]
 texture = ExtResource("2_vssrd")
@@ -54,7 +55,7 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_0fqxo")
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_1qvdw")
 TmlWallsPath = NodePath("TmlWalls")
 TmlBackgroundPath = NodePath("TmlBackground")
@@ -70,6 +71,10 @@ tile_set = SubResource("TileSet_h2yge")
 
 [node name="Detector" parent="." instance=ExtResource("3_jf66j")]
 position = Vector2(672, 224)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(512, 512)
+texture = ExtResource("4_vssrd")
 
 [node name="Boxes" type="Node" parent="."]
 
