@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqu5htecbhroc"]
+[gd_scene load_steps=6 format=3 uid="uid://k776lf5gpkih"]
 
 [ext_resource type="Script" uid="uid://cyhyvyyls3x43" path="res://scripts/StartScreen.cs" id="1_3cdud"]
+[ext_resource type="Texture2D" uid="uid://cthnjncan8njt" path="res://assets/background.png" id="2_3pj0e"]
+[ext_resource type="Texture2D" uid="uid://cqrodisgikjqh" path="res://assets/potion.png" id="2_w8rx1"]
+[ext_resource type="Texture2D" uid="uid://css0sl0b8yf4" path="res://assets/Fragile Potions_logo.svg" id="3_w8rx1"]
+[ext_resource type="Texture2D" uid="uid://cdexaf85888cq" path="res://assets/character.png" id="5_gxmh3"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_3cdud")
@@ -15,19 +19,89 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 1024.0
-color = Color(0, 0, 0, 1)
+color = Color(0.123121046, 0.091695346, 0.085422836, 1)
 
 [node name="Label" type="Label" parent="IntroScreen"]
 layout_mode = 0
-offset_right = 1024.0
-offset_bottom = 1024.0
-text = "FRAGILE SOKOBAN
-1) Use WASD or arrows to move (please don't spam keys it might break)
-2) When pushing a potion, all potions will move in the same direction unless pushed against a wall
-3) Each potion can be pushed against a wall for a finite amount of times, after which it will be destroyed
-4) Cover all the targets with potions to complete the level
-5) Press Enter to start or to reset the current level
+offset_left = 256.0
+offset_top = 440.0
+offset_right = 824.0
+offset_bottom = 824.0
+text = "Use WASD or arrows to move (please don't spam keys it might break)
 
-A game by luc-10 and Del-Real"
-horizontal_alignment = 1
+When pushing a potion, all potions will move in the same direction unless pushed against a wall
+
+Each potion can be pushed against a wall for a finite amount of times, after which it will be destroyed
+
+Cover all the targets with potions to complete the level
+
+Press Enter to start or to reset the current level"
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="IntroScreen"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 840.0
+offset_right = 728.0
+offset_bottom = 944.0
+text = "A game by luc-10 and del-Real"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="IntroScreen"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 760.0
+offset_right = 792.0
+offset_bottom = 783.0
+text = "-----------------------------"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Node2D" type="Node2D" parent="IntroScreen"]
+position = Vector2(224, 494)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D" type="Node2D" parent="IntroScreen/Node2D"]
+
+[node name="Potion" type="Sprite2D" parent="IntroScreen/Node2D/Node2D"]
+position = Vector2(-1008, -88)
+texture = ExtResource("2_w8rx1")
+offset = Vector2(1024, 92)
+
+[node name="Potion2" type="Sprite2D" parent="IntroScreen/Node2D/Node2D"]
+position = Vector2(-1008, -92)
+texture = ExtResource("2_w8rx1")
+offset = Vector2(1024, 198)
+
+[node name="Potion3" type="Sprite2D" parent="IntroScreen/Node2D/Node2D"]
+position = Vector2(-1008, -90)
+texture = ExtResource("2_w8rx1")
+offset = Vector2(1024, 354)
+
+[node name="Potion4" type="Sprite2D" parent="IntroScreen/Node2D/Node2D"]
+position = Vector2(-1008, -94)
+texture = ExtResource("2_w8rx1")
+offset = Vector2(1024, 510)
+
+[node name="Potion5" type="Sprite2D" parent="IntroScreen/Node2D/Node2D"]
+position = Vector2(-1008, -92)
+texture = ExtResource("2_w8rx1")
+offset = Vector2(1024, 612)
+
+[node name="FragilePotionsLogo" type="Sprite2D" parent="IntroScreen/Node2D"]
+position = Vector2(576, -428)
+scale = Vector2(0.9330544, 0.9330544)
+texture = ExtResource("3_w8rx1")
+
+[node name="Background" type="Sprite2D" parent="IntroScreen/Node2D"]
+position = Vector2(576, 36)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3pj0e")
+
+[node name="Character" type="Sprite2D" parent="IntroScreen/Node2D"]
+position = Vector2(1088, 756)
+scale = Vector2(2.125, 2.125)
+texture = ExtResource("5_gxmh3")
